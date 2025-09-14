@@ -95,7 +95,6 @@ Place screenshots in `public/screenshots/` using the suggested names below and G
 - Photo Result: `public/screenshots/photo-result.png`
 - Salary Chart: `public/screenshots/chart.png`
 - City Map: `public/screenshots/map.png`
-- 404 Not Found: `public/screenshots/404.png`
 
 Example embeds:
 
@@ -106,4 +105,3 @@ Example embeds:
 ![Photo Result](public/screenshots/photo-result.png)
 ![Chart](public/screenshots/chart.png)
 ![Map](public/screenshots/map.png)
-![404](public/screenshots/404.png)

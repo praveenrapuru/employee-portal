@@ -108,14 +108,15 @@ Example embeds:
 
 ## Demo Video
 
-<video src="public/screenshots/demo.webm" controls width="800">
-  Your browser does not support the video tag. You can
-  <a href="public/screenshots/demo.webm">download the demo video here</a>.
-  Note: Some platforms preview only MP4; WebM plays in most browsers.
-</video>
+GitHub README pages don’t reliably play embedded videos. Use the link or thumbnail below to open the video in your browser.
 
-Direct link: [public/screenshots/demo.webm](public/screenshots/demo.webm)
+- Watch: [public/screenshots/demo.webm](public/screenshots/demo.webm)
+- If the preview page opens, click “Download” or “View raw” to play.
 
-Thumbnail link (optional):
+Clickable thumbnail:
 
 [![Open Demo Video](public/screenshots/list.png)](public/screenshots/demo.webm)
+
+Optional GIF preview (drop a GIF at `public/screenshots/demo.gif` and it will autoplay below):
+
+![Demo GIF](public/screenshots/demo.gif)

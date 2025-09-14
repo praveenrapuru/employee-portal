@@ -108,4 +108,14 @@ Example embeds:
 
 ## Demo Video
 
-![Video Demo](public/screenshots/demo.webm)
+<video src="public/screenshots/demo.webm" controls width="800">
+  Your browser does not support the video tag. You can
+  <a href="public/screenshots/demo.webm">download the demo video here</a>.
+  Note: Some platforms preview only MP4; WebM plays in most browsers.
+</video>
+
+Direct link: [public/screenshots/demo.webm](public/screenshots/demo.webm)
+
+Thumbnail link (optional):
+
+[![Open Demo Video](public/screenshots/list.png)](public/screenshots/demo.webm)

@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Employee Portal (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple employee portal built with React. It includes login, a table of employees fetched from a proxied API, employee details and photo capture, a salary chart, and a city map view. Routes are protected with a basic client-side auth guard.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Login page with demo credentials and persisted session
+- Employee list fetched from backend via proxy
+- Details page with navigation from list
+- Photo capture using `react-webcam`
+- Salary chart using `recharts`
+- City map using `react-leaflet`
+- Protected routes and logout
 
-### `npm start`
+## Quick Start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Install dependencies: `npm install`
+- Start dev server: `npm start`
+- Open: `http://localhost:3000`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Demo login (for development/testing):
+- Username: `testuser`
+- Password: `Test123`
 
-### `npm test`
+## Scripts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `npm start` — run development server
+- `npm test` — run tests (watch mode)
+- `npm run build` — production build
+- `npm run eject` — eject CRA (irreversible)
 
-### `npm run build`
+## Routes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `/` — Login
+- `/list` — Employee list (protected)
+- `/details/:id` — Details (protected; expects navigation state)
+- `/photo` — Capture photo (protected)
+- `/chart` — Salary chart (protected; expects navigation state)
+- `/map` — City map (protected; expects navigation state)
+- `*` — 404 Not Found
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you load a protected page directly without prior navigation, the page shows a friendly fallback and a button to return to the list.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Auth
 
-### `npm run eject`
+Client-side only, for demo purposes:
+- `src/utils/auth.js` provides `login`, `logout`, `isAuthenticated`, `getUser` using `localStorage`.
+- `src/components/ProtectedRoute.js` guards routes and redirects unauthenticated users to `/`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Replace with real backend authentication for production (tokens, refresh, secure storage, revocation).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Data Fetching
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `src/services/api.js` centralizes API calls.
+- The dev server proxies `/api/*` requests via `src/setupProxy.js` to `https://backend.jotish.in/backend_dev`.
+- Update `setupProxy.js` if your backend URL changes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Mapping
 
-## Learn More
+- Uses Leaflet via `react-leaflet`.
+- Marker icon configuration is patched for webpack environments.
+- City coordinates live in `src/data/cityCoords.js`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Utilities
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `src/utils/format.js` — helpers like `toNumber()` to parse salary strings.
 
-### Code Splitting
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React, React Router, Tailwind CSS, Recharts, React Leaflet
+- CRA tooling (react-scripts)
 
-### Analyzing the Bundle Size
+## Notes on Tooling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- The project currently uses Create React App. If you encounter issues with React version compatibility, consider aligning versions (React 18 with CRA 5) or migrating to Vite.
 
-### Making a Progressive Web App
+## Project Structure (key files)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `src/App.js` — routes
+- `src/pages/*` — page components
+- `src/components/*` — shared components
+- `src/services/api.js` — API layer
+- `src/utils/*` — auth and formatting utilities
+- `src/data/cityCoords.js` — map coordinates
+- `src/setupProxy.js` — dev proxy to backend
 
-### Advanced Configuration
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Place screenshots in `public/screenshots/` using the suggested names below and GitHub will render them here.
 
-### Deployment
+- Login: `public/screenshots/login.png`
+- Employee List: `public/screenshots/list.png`
+- Details: `public/screenshots/details.png`
+- Photo (Camera): `public/screenshots/photo-capture.png`
+- Photo Result: `public/screenshots/photo-result.png`
+- Salary Chart: `public/screenshots/chart.png`
+- City Map: `public/screenshots/map.png`
+- 404 Not Found: `public/screenshots/404.png`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Example embeds:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Login](public/screenshots/login.png)
+![List](public/screenshots/list.png)
+![Details](public/screenshots/details.png)
+![Photo Capture](public/screenshots/photo-capture.png)
+![Photo Result](public/screenshots/photo-result.png)
+![Chart](public/screenshots/chart.png)
+![Map](public/screenshots/map.png)
+![404](public/screenshots/404.png)

@@ -105,3 +105,7 @@ Example embeds:
 ![Photo Result](public/screenshots/photo-result.png)
 ![Chart](public/screenshots/chart.png)
 ![Map](public/screenshots/map.png)
+
+## Demo Video
+
+![Video Demo](public/screenshots/demo.webm)

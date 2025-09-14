@@ -108,4 +108,4 @@ Example embeds:
 
 ## Demo Video
 
-![Video Demo](public/demo.webm)
+![Video Demo](public/screenshots/demo.webm)
